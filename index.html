@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gương trong hầm</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Game điều tra phá án trên tàu SE1 qua đèo Hải Vân: tua máy ảnh soi gương trong hầm, mở khoá điện thoại, dựng lại hoạt cảnh trên sơ đồ đoàn tàu.">
+<meta name="theme-color" content="#0e1418">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Patrick+Hand&family=Saira+Stencil+One&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-view="docs" data-mview="docs">
+<div class="lamp" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="top-in">
+    <span class="case-no">SE1</span>
+    <div class="brand"><span class="brand-t">Gương trong hầm</span><span class="brand-s">Tàu SE1 · đèo Hải Vân · trưa 21/11/2025</span></div>
+    <div class="hdr-r">
+      <div class="cups" id="cups" aria-label="Tiến độ trọng điểm"></div>
+      <button class="bag-btn" id="bag-btn" aria-label="Túi vật chứng"><span id="bag-ico"></span><span id="bag-n">0</span></button>
+      <button class="icon-btn" id="snd-btn" aria-pressed="true" aria-label="Tắt âm thanh" title="Âm thanh"></button>
+      <button class="icon-btn" id="notes-btn" aria-label="Sổ ghi chép" title="Sổ ghi chép"></button>
+      <button class="icon-btn" id="help-btn" aria-label="Cách chơi" title="Cách chơi"></button>
+    </div>
+  </div>
+</header>
+
+<main class="board">
+  <div class="main">
+    <nav class="main-tabs" aria-label="Khu vực điều tra" id="main-tabs"></nav>
+
+    <section id="v-docs" class="view" aria-label="Hồ sơ">
+      <div class="vhead"><p class="eyebrow">Hồ sơ SE1-2111 · đèo Hải Vân</p><h1>Ai đã giết nhiếp ảnh gia trong khoang 3, toa 9?</h1><p class="lead" id="doc-count"></p></div>
+      <div id="batches"></div>
+    </section>
+
+    <section id="v-scene" class="view" aria-label="Hiện trường">
+      <div class="vhead"><p class="eyebrow">Ảnh hiện trường · 13:35 · ga Đà Nẵng</p><h1>Khoang 3, toa 9</h1><p class="lead">Sơ đồ nhìn từ trên xuống. Chạm vào các biển số vàng để khám xét. Mỗi điểm đã khám được cho vào túi vật chứng.</p></div>
+      <div class="scene-wrap"><div><div class="scene-box" id="scene-box"></div><div class="hs-list" id="hs-list"></div></div><div class="insp" id="insp" aria-live="polite"></div></div>
+    </section>
+
+    <section id="v-people" class="view" aria-label="Bảng điều tra">
+      <div class="vhead"><p class="eyebrow">Nghi phạm & đối chất</p><h1>Bảng điều tra</h1><p class="lead">Chạm vào ảnh một người để đối chất bằng vật chứng. Kéo thả để sắp xếp, ghim vật chứng lên bảng và nối dây đỏ giữa các manh mối.</p></div>
+      <div class="board-tools"><button class="pill" id="bd-pin" data-lu="pin">Ghim vật chứng</button><button class="pill" id="bd-link" data-lu="spline" aria-pressed="false">Nối dây đỏ</button><button class="pill" id="bd-reset" data-lu="rotate-ccw">Xếp lại</button><span class="bd-hint" id="bd-hint" aria-live="polite"></span></div>
+      <div class="cork" id="board"><div class="bd-items" id="bd-items"></div><svg class="bd-strings" id="bd-strings" aria-hidden="true"></svg></div>
+    </section>
+
+    <section id="v-sim" class="view" aria-label="Hoạt cảnh trên sơ đồ">
+      <div class="vhead"><p class="eyebrow">Toa 7 – toa 9 · 12:10 – 12:50</p><h1>Hoạt cảnh trên sơ đồ</h1><p class="lead">Chọn lời khai của một người rồi tua: các nhân vật đi lại đúng như họ kể. Bằng chứng bạn đã có hiện thành vòng đặc có dấu ✓. Chỗ nào lời khai trái với bằng chứng sẽ hiện màu đỏ.</p></div>
+      <div class="sim-vs" id="sim-vs" role="group" aria-label="Phiên bản hoạt cảnh"></div>
+      <div class="sim-stage">
+        <div class="sim-top"><div class="sim-clock" id="sim-clock" aria-live="polite"></div><div class="sim-cars"><button class="pill" data-car="200">Toa 7</button><button class="pill" data-car="590">Toa 8</button><button class="pill" data-car="980">Toa 9</button></div></div>
+        <svg class="route" id="sim-route" viewBox="0 0 1000 86" aria-hidden="true"></svg>
+        <div class="plan-wrap sim-wrap" id="sim-wrap"><svg class="plan" id="sim-plan" viewBox="0 0 1180 200" role="img" aria-label="Sơ đồ toa 7 đến toa 9 với vị trí các nhân vật"></svg></div>
+        <div class="sim-ctl">
+          <button class="btn btn-tea btn-sm" id="sim-play"></button>
+          <button class="btn btn-ghost btn-sm" id="sim-speed" aria-label="Tốc độ phát">×30</button>
+          <button class="btn btn-ghost btn-sm" id="sim-nextbad">Mâu thuẫn tiếp ⏭</button>
+        </div>
+        <div class="sim-scrub"><div class="sim-ticks" id="sim-ticks"></div><label class="sr" for="sim-range">Tua thời gian</label><input type="range" id="sim-range" min="600" max="3000" step="1" value="600"><div class="sim-labs"><span>12:10</span><span>12:20</span><span>12:30</span><span>12:40</span><span>12:50</span></div></div>
+        <div class="sim-legend"><span><i class="lg-claim"></i>Theo lời khai</span><span><i class="lg-fact"></i>Bằng chứng xác nhận</span><span><i class="lg-bad"></i>Mâu thuẫn</span><span><i class="lg-tun"></i>Trong hầm</span><span><i class="lg-stop"></i>Tàu dừng</span></div>
+      </div>
+      <div class="sim-info" id="sim-info"></div>
+    </section>
+  </div>
+
+  <aside class="side">
+    <div class="side-hwrap"><span class="side-h">Trọng điểm</span></div>
+    <section id="v-points" class="view" aria-label="Trọng điểm">
+      <div class="vhead" style="margin-bottom:12px"><p class="eyebrow">3 trọng điểm</p><p class="lead" style="margin-top:2px">Phá trọng điểm đang mở để mở thêm hồ sơ.</p></div>
+      <div class="tp-list" id="tp-list"></div>
+    </section>
+  </aside>
+</main>
+
+<nav class="bnav" id="bnav" aria-label="Điều hướng"></nav>
+
+<!-- Trình đọc tài liệu -->
+<div class="ov" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vb-name" hidden>
+  <div class="ov-bar">
+    <button class="icon-btn" id="v-prev" aria-label="Tài liệu trước"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
+    <div class="vb-t"><span class="vb-code" id="vb-code"></span><span class="vb-name" id="vb-name"></span></div>
+    <span class="vb-pos" id="vb-pos"></span>
+    <button class="icon-btn" id="v-next" aria-label="Tài liệu sau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.5 6l6 6-6 6"/></svg></button>
+    <button class="icon-btn" data-close aria-label="Đóng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="ov-scroll" id="viewer-scroll">
+    <div class="v-tabs" id="v-tabs" role="tablist" aria-label="Cách xem tài liệu"><button role="tab" data-vt="text" aria-selected="true">Văn bản</button><button role="tab" data-vt="sim" aria-selected="false">Mô phỏng</button></div>
+    <article id="viewer-doc"></article>
+    <div class="viewer-foot"><button class="btn btn-ghost" id="v-prev2">← Trước</button><button class="btn btn-ghost" id="v-next2">Sau →</button></div>
+  </div>
+</div>
+
+<!-- Máy ảnh time-lapse -->
+<div class="ov" id="camov" role="dialog" aria-modal="true" aria-labelledby="cam-title" hidden>
+  <div class="ov-bar">
+    <div class="vb-t"><span class="vb-code" style="--k:var(--k-dev)">T10</span><span class="vb-name" id="cam-title">Máy ảnh time-lapse của ông Minh</span></div>
+    <button class="icon-btn" data-close aria-label="Đóng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="ov-scroll">
+    <div class="cam">
+      <div class="cam-screen" id="cam-screen"><div class="cam-img" id="cam-img"></div><div class="cam-vig"></div>
+        <div class="cam-hud"><span class="rec">● TL 2s</span><span id="cam-ts"></span></div><div class="cam-fr" id="cam-fr"></div><div class="cam-tag" id="cam-tag" hidden></div></div>
+      <div class="cam-ctl">
+        <button class="btn btn-tea btn-sm" id="cam-play"></button>
+        <button class="icon-btn" id="cam-prev" aria-label="Khung trước"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
+        <button class="icon-btn" id="cam-next" aria-label="Khung sau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.5 6l6 6-6 6"/></svg></button>
+        <button class="btn btn-ghost btn-sm" id="cam-tun">Hầm tiếp ⏭</button>
+        <span class="cam-time" id="cam-time"></span>
+      </div>
+      <div class="cam-scrub"><div class="cam-ticks" id="cam-ticks"></div><label class="sr" for="cam-range">Tua khung hình</label><input type="range" id="cam-range" min="0" max="963" step="1" value="0"></div>
+      <div class="cam-tools">
+        <label class="cam-exp" for="cam-exp"><span data-lu="sun"></span><span>Tăng sáng</span><input type="range" id="cam-exp" min="0" max="100" value="25"><b id="cam-expv">25</b></label>
+        <button class="pill" id="cam-flip" aria-pressed="false" data-lu="flip-horizontal-2">Lật ảnh</button>
+        <button class="pill" id="cam-zoom" aria-pressed="false" data-lu="scan-eye">Phóng to</button>
+      </div>
+      <p class="cam-hint" id="cam-hint" aria-live="polite"></p>
+      <div class="cam-log" id="cam-log"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Điện thoại -->
+<div class="ov" id="phone" role="dialog" aria-modal="true" aria-label="Điện thoại của ông Minh" hidden>
+  <div class="ph-stage"><div class="phone">
+    <button class="icon-btn ph-close" data-close aria-label="Đóng điện thoại"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="ph-screen" id="ph-screen"></div>
+  </div></div>
+</div>
+
+<div class="ov" id="profile" role="dialog" aria-modal="true" aria-labelledby="pf-name" hidden><div class="sheet-wrap"><div class="sheet" id="pf-sheet"></div></div></div>
+<div class="ov" id="picker" role="dialog" aria-modal="true" aria-labelledby="pk-title" hidden><div class="sheet-wrap"><div class="sheet" id="pk-sheet"></div></div></div>
+
+<div class="ov" id="bag" role="dialog" aria-modal="true" aria-labelledby="bag-title" hidden><div class="sheet-wrap"><div class="sheet">
+  <button class="icon-btn close-x" data-close aria-label="Đóng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <p class="eyebrow">Túi vật chứng</p><h2 id="bag-title" style="margin:4px 0 4px;font-size:22px">Những gì bạn đã thu thập</h2><p class="lead" id="bag-sum" style="margin-bottom:6px"></p><div id="bag-list"></div>
+</div></div></div>
+
+<div class="ov" id="notes-ov" role="dialog" aria-modal="true" aria-labelledby="notes-title" hidden><div class="sheet-wrap"><div class="sheet">
+  <button class="icon-btn close-x" data-close aria-label="Đóng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <p class="eyebrow">Sổ ghi chép</p><h2 id="notes-title" style="margin:4px 0 12px;font-size:22px">Giả thuyết của bạn</h2>
+  <label for="notes" class="sr">Ghi chép</label><textarea id="notes" spellcheck="false" placeholder="12:29 ông Minh còn nhắn tin…"></textarea>
+  <div class="notes-meta"><span id="notes-saved">Tự lưu trên máy này</span><span id="notes-len"></span></div>
+  <div class="reset"><button class="btn btn-ghost btn-sm" id="reset-btn">Chơi lại từ đầu</button><span id="reset-msg">Xoá toàn bộ tiến độ, vật chứng và ghi chép.</span></div>
+</div></div></div>
+
+<!-- Mở đầu -->
+<div class="ov intro-ov" id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title" hidden>
+  <canvas id="intro-rain" aria-hidden="true"></canvas>
+  <div class="intro-flash" id="intro-flash" aria-hidden="true"></div>
+  <div class="intro-ghost" id="intro-ghost" aria-hidden="true"><svg viewBox="0 0 200 240"><g transform="translate(200 0) scale(-1 1)"><path d="M20 240 C24 196 56 178 100 176 C144 178 176 196 180 240Z" fill="#9fb3c4"/><rect x="26" y="212" width="148" height="9" fill="#e9e3a0"/><ellipse cx="100" cy="112" rx="37" ry="45" fill="#9fb3c4"/><circle cx="100" cy="70" r="20" fill="#9fb3c4"/></g></svg></div>
+  <div class="intro-wrap"><div class="intro-card">
+    <div class="intro-top"><span class="case-no">SE1</span><span class="intro-meta">Tàu SE1 · đèo Hải Vân · trưa 21/11/2025</span></div>
+    <h2 class="intro-h" id="intro-title"><span class="ln">Gương</span><span class="ln acc">trong hầm</span></h2>
+    <p class="intro-body" id="intro-body"></p>
+    <ul class="feat" id="intro-feat"></ul>
+    <div id="rules-box" hidden>
+      <ol class="rules">
+        <li>Đọc hồ sơ. Lời khai và báo cáo có thêm tab <b>Mô phỏng</b>: khung tranh dựng lại sự việc theo lời người khai.</li>
+        <li>Tua máy ảnh time-lapse của nạn nhân. Khi tàu vào hầm, kéo <b>Tăng sáng</b>: tấm kính tối thành gương, phản chiếu vào trong khoang. Ảnh phản chiếu bị ngược, hãy <b>Lật ảnh</b>.</li>
+        <li>Ở <b>Hoạt cảnh</b>, chọn lời khai của từng người rồi tua thời gian. Chỗ nào bằng chứng nói khác sẽ hiện màu đỏ.</li>
+        <li>Ở <b>Bảng điều tra</b>, chạm vào một người để đối chất bằng vật chứng. Bác bỏ đúng sẽ mở lời khai bổ sung.</li>
+        <li>Phá 3 trọng điểm. Trọng điểm cuối: chọn hung thủ và xếp 6 khung tranh thành câu chuyện thật. Sai không bị phạt, mỗi trọng điểm có 2 gợi ý.</li>
+      </ol>
+      <p class="credits">Làm bằng mã nguồn mở miễn phí trên GitHub: <b>GSAP</b> (chuyển động, giấy phép miễn phí của GreenSock), <b>simplex-noise</b> (vân giấy, vân bần, giấy phép MIT), biểu tượng <b>Lucide</b> (giấy phép ISC), phông chữ <b>Google Fonts</b> (giấy phép OFL). Âm thanh tạo trực tiếp bằng Web Audio. Nhân vật, sự việc và lịch chạy tàu trong game đều hư cấu.</p>
+    </div>
+    <div class="intro-acts">
+      <button class="btn btn-tea btn-wide" id="intro-go">Bắt đầu điều tra</button>
+      <div class="intro-row"><button class="linkish" id="rules-toggle" aria-expanded="false" aria-controls="rules-box">Xem cách chơi</button><button class="pill" id="intro-snd" aria-pressed="true" style="margin-left:auto"></button></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- Kết thúc -->
+<div class="ov" id="finale" role="dialog" aria-modal="true" aria-labelledby="fin-title" hidden><div class="sheet-wrap"><div class="sheet fin-sheet">
+  <button class="icon-btn close-x" data-close aria-label="Đóng"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <p class="eyebrow">Vụ án SE1-2111</p><h2 class="intro-title" id="fin-title">Đã phá án</h2>
+  <p class="rank" id="fin-rank"></p>
+  <div class="fin-stats" id="fin-stats"></div>
+  <div class="fin-tabs" role="tablist"><button role="tab" data-tab="sol" aria-selected="true">Lời giải</button><button role="tab" data-tab="pic" aria-selected="false">Bức tranh tổng thể</button><button role="tab" data-tab="epi" aria-selected="false">Hậu truyện</button></div>
+  <div id="fin-body"></div>
+</div></div></div>
+
+<!-- Phá xong một trọng điểm -->
+<div class="ov solve-ov" id="solved" role="dialog" aria-modal="true" aria-labelledby="sv-title" hidden><div class="sv-wrap"><div class="sv-card" id="sv-card">
+  <div class="sv-stamp" id="sv-stamp">ĐÃ PHÁ</div>
+  <p class="eyebrow" id="sv-eyebrow"></p>
+  <h2 id="sv-title"></h2>
+  <p class="sv-t" id="sv-text"></p>
+  <div class="sv-docs" id="sv-docs"></div>
+  <div style="display:grid;gap:8px;justify-items:center"><button class="btn btn-tea btn-wide" id="sv-go">Xem tài liệu mới</button><button class="linkish" data-close>Ở lại trang này</button></div>
+</div></div></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/case.js"></script>
+<script src="js/art.js"></script>
+<script src="js/core.js"></script>
+<script src="js/views.js"></script>
+<script src="js/sim.js"></script>
+<script src="js/devices.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

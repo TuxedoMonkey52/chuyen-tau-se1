@@ -115,12 +115,13 @@ Một nhiếp ảnh gia bị đánh chết trong khoang tàu lúc tàu dừng tr
 
 | Ai | Lời khai | Vật chứng bác bỏ | Mở ra |
 |---|---|---|---|
-| Khoa | "Từ lúc ra chỗ nối toa, tôi không quay lại khoang cho tới khi nghe tiếng hét." | Máy ảnh: hầm 5 | Lời khai bổ sung T16 |
-| Huy | "Chị Dung chỉ đi vệ sinh chừng hai, ba phút." | Lời khai nhân viên toa ăn | Lời khai bổ sung T17 |
-| Cường | "Áo đồng phục của tôi treo trên móc, không ai động vào." | Máy ảnh: hầm 4 / Lời khai Mai | Lời khai bổ sung T18 |
-| Dung | "Tôi đi WC đầu toa 8 rồi về chỗ ngay." | WC toa 8 hỏng / nhân viên toa ăn | Lời khai bổ sung T19 |
+| Khoa | "Từ lúc ra chỗ nối toa, tôi không quay lại khoang cho tới khi nghe tiếng hét." | Máy ảnh: hầm 5 | Lời khai bổ sung T18 |
+| Huy | "Chị Dung chỉ đi vệ sinh chừng hai, ba phút." | Lời khai nhân viên toa ăn | Lời khai bổ sung T19 |
+| Cường | "Áo đồng phục của tôi treo trên móc, không ai động vào." | Máy ảnh: hầm 4 / Lời khai Mai | Lời khai bổ sung T20 |
+| Dung | "Tôi đi WC đầu toa 8 rồi về chỗ ngay." | WC toa 8 hỏng / nhân viên toa ăn | Lời khai bổ sung T21 |
+| Dung | "Trưa nay tôi không nhận tin nhắn nào của anh Minh." | Tin nhắn "Lên khoang 3 ngay", đã xem 12:31 | Dung im lặng, đòi gặp luật sư |
 | Mai | "Người mặc áo nhân viên chắc là anh soát vé." | Hầm 4 đã lật / áo lộn trái | Mai nhớ ra tiếng gót giày |
 
 ## 8. Hậu truyện
 
-Cuốn sổ đỏ đã mất, nhưng ông Minh cẩn thận chụp từng trang gửi vào mục "Ảnh" của điện thoại lúc 11:18. Luật sư Tâm dùng chính những tấm ảnh đó để khởi kiện. Triển lãm "Ba mươi năm qua đèo" vẫn khai mạc, muộn ba tháng, do Huy làm giám tuyển. Ở cuối phòng trưng bày, Huy treo khung hình cuối cùng của cuộn time-lapse: trần khoang tàu nghiêng, lúc 12:44:06.
+Cuốn sổ đỏ đã mất, nhưng lúc 11:18 ông Minh đã chụp lại từng trang bằng điện thoại. Luật sư Tâm dùng chính những tấm ảnh đó để khởi kiện. Triển lãm "Ba mươi năm qua đèo" vẫn khai mạc, muộn ba tháng, do Huy làm giám tuyển. Ở cuối phòng trưng bày, Huy treo khung hình cuối cùng của cuộn time-lapse: trần khoang tàu nghiêng, lúc 12:44:06.
